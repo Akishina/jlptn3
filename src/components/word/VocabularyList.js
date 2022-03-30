@@ -6,9 +6,7 @@ import Tts from 'react-native-tts';
 
 Tts.setDefaultLanguage('ja-JP');
 
-function VocabularyScreen({route}) {
-  const {lesson} = route.params;
-
+function VocabularyList({lesson}) {
   return (
     <ScrollView>
       {data[lesson].map((l, i) => (
@@ -34,4 +32,4 @@ function VocabularyScreen({route}) {
   );
 }
 
-export default VocabularyScreen;
+export default VocabularyList;

@@ -1,38 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Tab, TabView} from 'react-native-elements';
-import LessonsList from '../components/home/LessonsList';
+import KanjiList from '../components/word/KanjiList';
+import VocabularyList from '../components/word/VocabularyList';
+import {BannerAd, BannerAdSize} from '@react-native-admob/admob';
 
-function WordScreen({onPressItem, list}) {
+function WordScreen({route}) {
   const [index, setIndex] = useState(0);
-
-  const onPressKanjiItem = id => {
-    navigation.navigate('Kanji', {lesson: `lesson${id}`});
-  };
+  const {lesson} = route.params;
 
   return (
     <>
-      <Tab value={index} onChange={e => setIndex(e)} variant="Vocabulary">
+      <Tab value={index} onChange={e => setIndex(e)} variant="primary">
         <Tab.Item
           title="Vocabulary"
           titleStyle={{fontSize: 12}}
-          icon={{name: 'timer', type: 'ionicon', color: 'white'}}
+          icon={{name: 'book', type: 'entypo', color: 'white'}}
         />
         <Tab.Item
           title="Kanji"
           titleStyle={{fontSize: 12}}
-          icon={{name: 'heart', type: 'ionicon', color: 'white'}}
+          icon={{name: 'language', type: 'entypo', color: 'white'}}
         />
       </Tab>
 
       <TabView value={index} onChange={setIndex} animationType="spring">
         <TabView.Item style={{width: '100%'}}>
-          <LessonsList
-            list={listVocabulary}
-            onPressItem={onPressVocabularyItem}
-          />
+          <VocabularyList lesson={lesson} />
         </TabView.Item>
         <TabView.Item style={{width: '100%'}}>
-          <LessonsList list={listKanji} onPressItem={onPressKanjiItem} />
+          <KanjiList lesson={lesson} />
         </TabView.Item>
       </TabView>
 

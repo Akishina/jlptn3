@@ -21,12 +21,12 @@ function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{headerShown: false}}
+          options={{title: 'Lessons List'}}
         />
         <Stack.Screen
           name="Word"
           component={WordScreen}
-          options={{title: 'Word'}}
+          options={{title: 'Words List'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

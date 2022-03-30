@@ -37,7 +37,7 @@ const listVocabulary = [
 
 function HomeScreen({navigation}) {
   const onPressVocabularyItem = id => {
-    navigation.navigate('Vocabulary', {lesson: `lesson${id}`});
+    navigation.navigate('Word', {lesson: `lesson${id}`});
   };
 
   return (

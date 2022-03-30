@@ -1,15 +1,15 @@
 import {ScrollView} from 'react-native';
 import React from 'react';
 import {ListItem, Icon} from 'react-native-elements';
-import wordData from '../../assets/kanji/lesson1.json';
 import Tts from 'react-native-tts';
+import data from '../../assets/kanji';
 
 Tts.setDefaultLanguage('ja-JP');
 
-function KanjiScreen() {
+function KanjiList({lesson}) {
   return (
     <ScrollView>
-      {wordData.map((l, i) => (
+      {data[lesson].map((l, i) => (
         <ListItem key={i} bottomDivider>
           <Icon
             raised
@@ -32,4 +32,4 @@ function KanjiScreen() {
   );
 }
 
-export default KanjiScreen;
+export default KanjiList;
